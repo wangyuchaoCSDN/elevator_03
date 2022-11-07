@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.elevator_02.mapper.ElevatorMapper">
+    <!--查询所有-->
+    <!--<select id="findAll" resultType="elevator" parameterType="elevator">
+        SELECT * FROM elevatorlist e,eletype t
+        WHERE
+        e.tid=t.tid
+        <if test="serial!=null and serial!='' ">
+            and serial=#{serial}
+        </if>
+        <if test="supplier!=null and supplier!='' ">
+            and t.supplier like concat("%",#{t.supplier},"%")
+        </if>
+        <if test="type!=null and type!='' ">
+            and t.type like concat("%",#{t.type},"%")
+        </if>
+    </select>-->
+    <select id="findAll" resultType="elevator" parameterType="elevator">
+        SELECT * FROM elevatorlist e,eletype t
+        WHERE
+        e.tid=t.tid
+        <if test="serial!=null and serial!='' ">
+            and serial=#{serial}
+        </if>
+        <if test="supplier!=null and supplier!='' ">
+            and supplier=#{supplier}
+        </if>
+        <if test="type!=null and type!='' ">
+            and type like concat("%",#{type},"%")
+        </if>
+    </select>
+</mapper>
