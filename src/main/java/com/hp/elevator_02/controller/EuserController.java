@@ -45,6 +45,7 @@ public class EuserController {
         if(verCode.equals(verifyCode.toLowerCase())){
             if(login!=null){
                 //登录成功
+                session.setAttribute("login",login);
                 return "index";
             }else {
                 //登录不成功
